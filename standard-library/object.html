@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        const person = {
+            firstName: "Dicki",
+            lastName: "Darmawan Saputra"
+        }
+
+        // biar diubah atau delete tetap tidak akan berdampak
+        // Object.freeze(person);
+
+        // bisa dirubah, tapi bisa dihapus dan tambah
+        Object.seal(person);
+
+        person.firstName = "Roy";
+        delete person.lastName;
+        console.log(person);
+
+
+        // Object Assign
+        // mengcopy dari source ke target (property nya)
+        const target = {firstName: "Dicki"};
+        const source = {firstName: "Roy", lastName: "DS"};
+
+        Object.assign(target, source);
+        console.log(target);
+        console.log(source);
+        
+        // Object property name & value
+        const values = Object.values(person);
+        const propertyName = Object.getOwnPropertyNames(person);
+        console.log(values);
+        console.log(propertyName);
+    </script>
+</body>
+</html>

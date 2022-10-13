@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>With Statement</title>
+</head>
+<body>
+    <script>
+        // untuk menurunkan scope data
+        // bisa akses property dalam sebuah data tanpa harus menyebutkan datanya
+        // kebanyakan tidak direkomendasikan
+        // karna membuat kode menjadi ambigu
+        // misal jika ada 2 variable firstName
+        const person = {
+            firstName: "Dicki",
+            middleName: "Darmawan",
+            lastName: "Saputra"
+        }
+        // tanpa with statement
+        console.info(person.firstName);
+        
+        // yang membuat ambigu
+        const firstName = "Ambigu"; // yang keluar di with statement tetap di person
+
+        // dengan with statement
+        with (person) {
+            console.info(firstName);
+            console.info(middleName);
+            console.info(lastName);
+        }
+
+    </script>
+</body>
+</html>

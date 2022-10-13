@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+</head>
+<body>
+    <script>
+        const names = ["Dicki", "Darmawan", "Saputra", "tambahan"];
+
+        // cara biasa ambil data di array
+        const namaPertama = names[0];
+        console.info(namaPertama);
+
+        // dengan destucturing
+        const [firstName, middleName, lastName, ...others] = names;
+        console.info(firstName);
+        console.info(middleName);
+        console.info(lastName);
+        console.info(others); // output array
+
+        // jika di object
+        const person = {
+            first: "Dicki",
+            last: "Darmawan Saputra",
+            address: {
+                city: "Pontianak",
+                number: 10
+            },
+            age: 26
+        }
+
+        const {first, last, ...lainnya} = person;
+        // jika nested
+        const {address: {city, number}} = person;
+        console.info(first);
+        console.info(lainnya);
+        console.info(city);
+
+        // destructuring func parameter
+        function displayOrang({firstName, lastName}) {
+            console.info(firstName);
+            console.info(lastName);
+        }
+
+        const orang = {
+            firstName: "Dicki",
+            lastName: "DS"
+        }
+
+        displayOrang(orang);
+
+        // destructuring func parameter with default value
+        function sum([first, second, third = 40]) {
+            return first + second + third;
+        }
+
+        console.info(sum([10,10]));
+
+        // merubah nama variable
+        // karna destructuring sesuai nama property, tp dengan ini bisa merubahnya
+        const {firstName: namaDepan, lastName: namaBelakang} = orang;
+        console.info(namaDepan);
+        console.info(namaBelakang);
+    </script>
+</body>
+</html>

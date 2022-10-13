@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Worker</title>
+</head>
+<body>
+    <button onclick="buttonClick()">Search Products</button>
+    <script>
+        // default JS single thread, walaupun async tetap akan jalan di thread yg sama
+        // kemampuan 1 thread dalam mengelola beberapa pekerjaan dinamakan Concurrent
+        // kemampuan menjalankan beberapa thread & beberapa perkerjaan dinamakan Paralel
+        // membuat proses Paralel dengan Web Worker
+        // Pelajari dulu "Concurrency VS Parallelism"
+        // komuniskasi di web worker dengan Event Listener
+
+        // BEFORE WORKER
+        // function showLog(total) {
+        //     for (let i = 0; i < total; i++) {
+        //         console.log(i);
+        //     }
+        // }
+
+        // function buttonClick() {
+        //     console.log("Start Log");
+        //     showLog(20000);
+        //     console.log("Finish Log");
+        // }
+
+        // RUN WORKER DI BROWSER SECARA LOCAL AGAR BISA
+        // "C:\Program Files\Google\Chrome\Application\chrome.exe" --allow-file-access-from-files
+
+        const worker = new Worker("web-worker.js");
+        worker.addEventListener("message", function (event) {
+            console.log(`Receive message from web worker : ${event.data}`);
+        });
+
+        function buttonClick() {
+            console.log("Start Log");
+            worker.postMessage(20000);
+            console.log("Finish Log");
+        }
+
+        // Alhamdulillah
+    </script>
+</body>
+</html>

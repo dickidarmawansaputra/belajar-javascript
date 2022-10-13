@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback</title>
+</head>
+<body>
+    <button onclick="buttonClick()">Click Me</button>
+    <script>
+        // mekanisme memanggil kembali kode yg ada di program dari proses asynchronous
+        // setTimeout(handler, time)
+        // setInterval(handler, time)
+
+        // SYNCHRONOUS
+        // function callback() {
+        //     console.log("Hello World");
+        // }
+
+        // function buttonClick() {
+        //     callback();
+        //     console.log("Success Click Button");
+        // }
+        
+        // ASYNCHRONOUS
+        function callback() {
+            console.log("Hello World");
+        }
+
+        function buttonClick() {
+            // bisa juga cara ini
+            setTimeout(callback, 5000);
+
+            setTimeout(function() {
+                callback();
+            }, 5000); // 5 detik (dalam milisecond)
+
+            setInterval(function() {
+                callback();
+            }, 2000);
+            console.log("Success Click Button");
+        }
+    </script>
+</body>
+</html>

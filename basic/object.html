@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        // ASSOCIATIVE ARRAY
+        // di js index dalam array tidak bisa berupa string, berbeda dengan PHP bisa
+        // jika dipaksa masukan bukan number maka berubah jadi object
+        // index diobject disebut attributes atau properties
+
+        let objectKosong = {};
+        console.log(objectKosong);
+
+        // propertiesnya bukan lagi number tidak seperti array, lebih readable
+        let person = {};
+        person["firstName"] = "Dicki";
+        person["middleName"] = "Darmawan";
+        person["lastName"] = "Saputra";
+        console.table(person);
+
+        let user = {
+            name: "Dicki",
+            "nama lengkap": "Dicki Darmawan Saputra",
+            address: "Pontianak"
+        };
+        console.table(user);
+        console.info(user.name);
+        console.info(user["nama lengkap"]);
+    </script>
+</body>
+</html>

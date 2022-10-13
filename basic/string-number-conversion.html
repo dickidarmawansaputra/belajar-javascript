@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Number Conversion</title>
+</head>
+<body>
+    <script>
+        /*
+        parseInt(string) = konversi string ke bilangan bulat
+        parseFloat(string) = konversi string ke bilangan desimal
+        Number(string) = konversi string ke number (bilangan bulat atau desimal bisa) (bisa keduanya)
+        number.toString() = konversi number ke string
+        */
+
+        let x = 1;
+        let y = "2";
+        document.writeln(x + y); // hasilnya salah jadi 12 (dianggap string)
+        document.writeln(x + parseInt(y));
+        document.writeln(parseFloat(1.1));
+        document.writeln(y.toString());
+
+        // NaN (Not a Number)
+        // jika NaN di lakukan perhitungan atau lainnya outpunya tetap NaN
+        document.writeln(parseInt("salah")); // output NaN
+
+        // untuk mengecek NaN
+        document.writeln(isNaN(1));
+    </script>
+</body>
+</html>

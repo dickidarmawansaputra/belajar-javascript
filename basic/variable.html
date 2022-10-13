@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+</head>
+<body>
+    <script>
+        // tanpa variable
+        document.writeln("Dicki Darmawan Saputra");
+        document.writeln("</br>");
+        document.writeln("Dicki Darmawan Saputra");
+        document.writeln("</br>");
+        document.writeln("Dicki Darmawan Saputra");
+        document.writeln("</br>");
+
+        // dengan variable
+        // var fullName;
+        // var firstName;
+        // var lastName;
+        // fullName = "Dicki Darmawan Saputra";
+        // fullName = "Dicki Darmawan";
+        // fullName = "Dicki";
+        // firstName = "Dicki";
+        // lastName = "Saputra";
+        // fullName = firstName + " Darmawan " + lastName;
+        // document.writeln(fullName);
+
+        // sejak ECMAScript 2015 tidak direkomendasikan pake var
+        // diganti dengan let dan cons
+        // let digunakan pengganti var dan datanya bisa di ubah-ubah
+        // sedangkan const jika varible sudah diisi value, valuenya tidak bisa dirubah
+        // dengan let
+        let fullName;
+        let firstName;
+        let lastName;
+        fullName = "Dicki Darmawan Saputra";
+        fullName = "Dicki Darmawan";
+        fullName = "Dicki";
+        firstName = "Dicki";
+        lastName = "Saputra";
+        fullName = firstName + " Darmawan " + lastName;
+        document.writeln(fullName);
+
+        const app = "Belajar JS"
+
+        // jika value dirubah maka akan error
+        // app = "Belajar JS"
+        document.writeln(app);
+    </script>
+</body>
+</html>

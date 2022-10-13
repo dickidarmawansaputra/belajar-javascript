@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    <script>
+        // mirip dengan object hanya saja pada map semua method manipulasi data sudah disediakan
+        // mengikuti contract iterable sehingga bisa diiterasi
+
+        // Map Instance Method & Property
+        /*
+        size (panjang Map)
+        clear (menghapus semua isi Map)
+        delete(key) (Menghapus data Map berdasarkan key)
+        get(key): value (mendapatkan data Map berdasarkan key)
+        has(key): boolean (mengecek apakah map berisi data key)
+        set(key, value) (mengubah data map dengan key = value)
+        forEeach((key, value) => ) (iterasi map)
+        */
+
+        const map = new Map();
+        map.set("Name", "Dicki Darmawan Saputra");
+        map.set("Address", "Pontianak");
+
+        console.log(map);
+        console.log(map.get("Name"));
+        console.log(map.get("Address"));
+
+        for (const element of map) {
+            console.log(`${element[0]} : ${element[1]}`)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membuat Class Error</title>
+</head>
+<body>
+    <script>
+        class ErrorValidation extends Error {
+            constructor(message, field) {
+                super(message);
+                this.field = field;
+            }
+        }
+
+        class MathUtil {
+            static sum(...numbers) {
+                if (numbers.length === 0) {
+                    throw new ErrorValidation("Parameter harus kebih dari 0", "numbers");
+                }
+                let total = 0;
+                for (const number of numbers) {
+                    total += number;
+                }
+                return total;
+            }
+        }
+
+        try {
+            console.log(MathUtil.sum());
+            console.log("code block Try berhenti");
+        } catch (error) {
+            if (error instanceof ErrorValidation) {
+                // tangkap error fieldnya disini
+                console.log(`terjadi error di ${error.field} dengan pesan: ${error.message}`)
+            } else {
+                console.log(`terjadi error: ${error.message}`)
+            }
+        } finally { // dengan finally, mau error atau enggak akan dieksekusi
+            console.log("Program selesai");
+        }
+
+        console.log("program selanjutnya berjalan");
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>
+    <script>
+        // js pertama kali dikenal berbasis prototype
+        // saat membuat object dari constructor func, objec disebut instance dan semua property akan berada dalam instance objectnya
+        // setiap membuat constructor func maka otomatis akan di buat prototypenya
+        // Person.prototype
+        // untuk akses prototype gunakan __proto__
+        function Person(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.sayHello = function (name) {
+                console.log(`Hi, ${name} my name is ${this.firstName}`);
+            }
+        }
+
+        const dicki = new Person("Dicki", "Darmawan Saputra");
+        const other = new Person("Orang", "Lain");
+        // hanya akan muncul di object other
+        other.sayBye = function () {
+            console.info("Good Bye");
+        }
+
+        // jika mau muncul di semua object bisa di constructor langsung atau cara ini
+        // akan masuk di proto bukan ke instance object
+        Person.prototype.sayBye = function () {
+            console.info("Good Bye");
+        }
+        Person.prototype.run = function () {
+            console.info(`${this.firstName} is running`);
+        }
+
+        // akan ngecek dulu apakah di instance objecnya ada, jika tidak akan mengakses di proto
+        // aksesnya
+        dicki.sayBye();
+        dicki.run();
+
+        console.log(dicki);
+        console.log(other);
+    </script>
+</body>
+</html>

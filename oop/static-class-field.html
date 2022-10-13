@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Class Field</title>
+</head>
+<body>
+    <script>
+        // static field secara otomatis bukan milik instance object tp milik class
+        // static biasa digunakan untuk utility field atau func
+        // aksesnya tidak lagi lewat object tapi langsung ke class
+        // bersifat global
+        class Configuration {
+            static name = "Belajar JS OOP";
+            static version = "1.0";
+            static author = "Dicki Darmawan Saputra"
+        }
+
+        const config = new Configuration();
+        console.log(config); // karna bukan milik object jadi tidak bisa diakses dengan cara ini
+
+        // mengaksesnya dengan lewat class
+        // bersifat global
+        console.log(Configuration.name);
+        console.log(Configuration.version);
+        console.log(Configuration.author);
+
+    </script>
+</body>
+</html>

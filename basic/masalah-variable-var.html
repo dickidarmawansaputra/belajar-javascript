@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masalah Variable Var</title>
+</head>
+<body>
+    <script>
+        // var tidak memiliki block scope (kayak scope local & global tidak terikat)
+        // var tidak terprediksi
+
+        // dengan let
+        // global scope
+        // tidak akan mengubah value global scope
+        let i = 20;
+        for (let i = 0; i < 10; i++) {
+            // local scope
+            console.info(`Local: ${i}`);
+            
+        }
+
+        console.info(`Global: ${i}`);
+        
+        // masalah di var, global scopenya ikut berubah valuenya
+        // akan meng-override global scope
+        var x = 20;
+        for (var x = 0; x < 10; x++) {
+            // local scope
+            console.info(`Local var: ${x}`);
+            
+        }
+
+        console.info(`Global var: ${x}`);
+    </script>
+</body>
+</html>

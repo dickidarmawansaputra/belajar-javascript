@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegExp</title>
+</head>
+<body>
+    <script>
+        // regular expression di JS
+        // fitur mencari text dengan pola
+        // di JS bisa dua cara, literal Notation atau dengan object RegExp
+
+        const regex1 = new RegExp("[a]");
+        console.log(regex1);
+
+        const name = "Dicki Darmawan Saputra";
+        const regex = /dicki/;
+
+        let result = regex.exec(name);
+        console.log(result);
+        
+        let test = regex.test(name);
+        console.log(test);
+
+        // RegExp Modifier
+        /*
+        i (regex menjadi incase sensitive)
+        g (pencarian secara global, default setelah menemukan data pencarian akan berhenti)
+        m (multiline, pencarian dilakukan di tiap baris)
+        */
+
+        const nama = "dicki darmawan\nsaputra\nDicki Darmawan Saputra"
+        const regex2 = /dicki/g;
+        const regex3 = /Darmawan/ig;
+
+        while ((result = regex2.exec(name)) !== null) {
+            console.log(result);
+        }
+        
+        while ((result = regex3.exec(name)) !== null) {
+            console.log(result);
+        }
+
+        const string = "dicki dacka dadi nuio au io";
+
+        console.log("String");
+        console.log(string.match(/d[aiueo]/ig));
+        console.log(string.search(/d[aiueo]/ig));
+        console.log(string.replace(/d[aiueo]/ig, "keren loh"));
+        console.log(string.replaceAll(/d[aiueo]/ig, "keren loh"));
+        console.log(string.split(/d/ig));
+    </script>
+</body>
+</html>

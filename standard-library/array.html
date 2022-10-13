@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <script>
+        const array = ["Dicki", "Darmawan", "Saputra"];
+
+        // array loop
+        array.forEach(element => {
+            console.log(element);
+        });
+        
+        array.forEach(function (value, index) {
+            console.log(`${index} => ${value}`);
+        });
+
+        // array queue
+        // FIFO (First In First Out)
+        const queue = [];
+        queue.push("Dicki");
+        queue.push("Darmawan");
+        queue.push("Saputra");
+
+        console.log(queue.shift());
+        console.log(queue.shift());
+        console.log(queue.shift());
+
+        // array stack
+        // LIFO (Last in First Out)
+        const stack = [];
+        stack.push("Dicki");
+        stack.push("Darmawan");
+        stack.push("Saputra");
+
+        console.log(stack.pop());
+        console.log(stack.pop());
+        console.log(stack.pop());
+
+        // array search
+        const source = [1,2,3,4,5,1,2,3,4,5];
+        console.log(source.find(value => value > 3));
+        console.log(source.findIndex(value => value > 3));
+        console.log(source.includes(7));
+        console.log(source.indexOf(5));
+        console.log(source.lastIndexOf(5));
+
+        // array filter
+        console.log(source.filter(value => value % 2 === 1));
+        console.log(source.filter(value => value % 2 === 0));
+
+        // array transform
+        console.log(array.map(value => value.toLocaleUpperCase()));
+        console.log(array.reduce((before, value) => before + " " + value));
+        console.log(array.reduceRight((before, value) => before + " " + value));
+        console.log(source.reduce((before, value) => before + value));
+    </script>
+</body>
+</html>

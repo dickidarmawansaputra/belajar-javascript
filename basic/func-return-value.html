@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Return Value</title>
+</head>
+<body>
+    <script>
+        function sayHello(firstName, lastName) {
+            const hello = `Hi, ${firstName} ${lastName}`;
+            return hello;
+        }
+
+        const result = sayHello("Dicki", "Darmawan Saputra");
+        document.writeln(result);
+
+        function getFinalValue(value) {
+            if (value > 90) {
+                return "A";
+            } else if (value > 80) {
+                return "B";
+            } else {
+                return "C";
+            }
+        }
+
+        const final = getFinalValue(81);
+        document.writeln(final);
+
+        // return untuk menghentikan eksekusi program
+        let arrayData = [1,2,3,4,5];
+        function isContain(array, searchValue) {
+            for (const element of array) {
+                if (element === searchValue) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        const arrayResult = isContain(arrayData, 5);
+        document.writeln(arrayResult);
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optional Chaining</title>
+</head>
+<body>
+    <script>
+        // optional chaining operator utk mengamankan ketika akses property dari sebuah object data nullish
+        const person = {
+            firstName: "Dicki"
+        }
+        // document.writeln(person.address.country); // akan error
+        // document.writeln("Suskses"); // dan kode selanjutnya tidak jalan
+
+        // dengan optional chaining
+        // optional chaining check = undefined atau null
+        document.writeln(person?.address?.country);
+
+    </script>
+</body>
+</html>

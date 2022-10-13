@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope</title>
+</head>
+<body>
+    <script>
+        // scope = area akses sebuat data
+        // global scope dan local scope
+        // setiap membuat func akan dibuat local scope untuk func tersebut
+        // data global scope bisa diakses dari local scope, jika local scope hanya dari dalam func tersebut
+        let counter = 0; // global scope
+
+        // global scope
+        function hitMe() {
+            counter++; // local scope hitMe
+        }
+
+        function others() {
+            // local scope others
+            hitMe();
+        }
+
+        hitMe();
+        hitMe();
+        others();
+        console.log(counter);
+
+        function first() {
+            let firstVar = "First";
+        }
+        
+        function second() {
+            let secondVar = "Second";
+        }
+
+        first();
+        second();
+
+        // console.log(firstVar); // hanya bisa diakses di local scope
+        // console.log(secondVar); // hanya bisa diakses di local 
+
+        // jika di nested func, bisa di akses
+
+        function nested() {
+            let firstVariable = "First Nested";
+
+            function secondNested() {
+                document.writeln(firstVariable);
+                var secondVariable = firstVariable;
+            }
+
+            secondNested();
+            // console.log(secondVariable); // ini tidak bisa diakses
+        }
+
+        nested();
+    </script>
+</body>
+</html>

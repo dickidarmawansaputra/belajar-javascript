@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+</head>
+<body>
+    <script>
+        const now = new Date();
+        
+        // month + 1
+        const createDate = new Date(2022, 0, 1);
+
+        // create full date
+        const fullDate = new Date(2022, 0, 1, 10, 11, 12);
+
+        // create epoch & unix timestamp
+        const epoch = Date.now();
+
+        // create date from epoch / unix timestamp
+        const fromEpoch = new Date(epoch);
+
+        console.log(now);
+        console.log(createDate);
+        console.log(fullDate);
+        console.log(epoch);
+        console.log(fromEpoch);
+        console.log(fromEpoch.getTime());
+
+        // parsing Date from string
+        const parseTimestamp = Date.parse("2022-01-02T10:10:10.123+07:00");
+
+        const parseDate = new Date(parseTimestamp);
+        console.log(parseDate);
+
+        // getter dan setter di date
+        const date = new Date();
+        date.setFullYear(2020);
+
+        console.log(date.getFullYear());
+        console.log(date.getMonth());
+        console.log(date.getDate());
+    </script>
+</body>
+</html>

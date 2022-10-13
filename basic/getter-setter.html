@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter & Setter</title>
+</head>
+<body>
+    <script>
+        // getter & setter
+        const person = {
+            firstName: "Dicki",
+            lastName: "Darmawan Saputra",
+            // jadi property fullName
+            get fullName() {
+                return `${this.firstName} ${this.lastName}`;
+            },
+            set fullName(value) {
+                const array = value.split(" ");
+                this.firstName = array[0];
+                this.lastName = array[1];
+            }
+        }
+    person.firstName = "Roy";
+    document.writeln(person.fullName);
+    document.writeln(`<p>${person.firstName}</p>`);
+    document.writeln(`<p>${person.lastName}</p>`);
+
+    person.fullName = "Roy Kiyoshi";
+    console.table(person);
+    document.writeln(`<p>${person.fullName}</p>`);
+    </script>
+</body>
+</html>

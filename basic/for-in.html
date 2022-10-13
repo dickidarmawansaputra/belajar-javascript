@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For In</title>
+</head>
+<body>
+    <script>
+     // tidak dirokemendasikan untuk array
+     // biasanya digunakan untuk iterasi di object
+     // output nama keynya
+     // untuk akses property di object
+     const person = {
+        firstName: "Dicki",
+        middleName: "Darmawan",
+        lastName: "Saputra"
+     }   
+
+     for (const property in person) {
+        document.writeln(`<p>${property}</p>`);
+        document.writeln(`<p>Property: ${person[property]}</p>`);
+    }
+    
+    const names = ["Dicki", "Darmawan", "Saputra"];
+    for (const index in names) {
+        document.writeln(`<p>${index}</p>`);
+        document.writeln(`<p>Property: ${names[index]}</p>`);
+     }
+    </script>
+</body>
+</html>

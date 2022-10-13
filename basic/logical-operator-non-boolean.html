@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logical Operator Non Boolean</title>
+</head>
+<body>
+    <script>
+        console.info("hello" || "");
+        console.info("" || []);
+        console.info("0" || "NOL"); // jika dua-duanya truthly yg pertama yg diambil
+        console.info(null || "NULL");
+        console.info(undefined || "UNDEFINED");
+        console.info(0 || false); // jika dua-duanya falsy yg terakhir yg diambil
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instanceof Operator</title>
+</head>
+<body>
+    <script>
+        // returnnya true or false
+        // mengecek sebuah object dari class apa
+        // untuk mengecek inheritance (pewarisan) juga bisa
+        class Empolyee {
+
+        }
+
+        class Manager extends Empolyee {
+
+        }
+
+        const roy = new Empolyee();
+        const dicki = new Manager();
+
+        console.log(roy instanceof Empolyee); // true
+        console.log(roy instanceof Manager); // false
+        console.log(dicki instanceof Manager); // true
+        console.log(dicki instanceof Empolyee); // true
+    </script>
+</body>
+</html>

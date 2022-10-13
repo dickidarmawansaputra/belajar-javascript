@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Generator</title>
+</head>
+<body>
+    <script>
+        // func generator membuat data generator
+        // generator = data yg bisa di iterasi seperti array tapi bukan array
+        // generator sifatnya lazy
+        // bisa liat perbandingan di console log antara lazy dan eager
+        // lazy akan ditampilkan hanya ketika dipanggil atau dibutuhkan (lebih hemat resource)
+        // tidak seperti eager langsung ditampilkan semua
+
+        function* createNames() {
+            yield "Dicki";
+            yield "Darmawan";
+            yield "Saputra";
+        }
+
+        console.info(createNames());
+
+        const names = createNames();
+
+        for (name of names) {
+            console.info(name);
+        }
+
+        // Lazy
+        function* ganjil(value) {
+            for (let i = 0; i <= value; i++) {
+                if (i % 2 === 1) {
+                    console.info(`Yield: ${i}`);
+                    yield i;
+                }
+            }
+        }
+
+        const numbers = ganjil(100);
+        for (const number of numbers) {
+            console.info(number);
+        }
+        
+        // Eager
+        function ganjilArray(value) {
+            const result = [];
+            for (let i = 0; i <= value; i++) {
+                if (i % 2 === 1) {
+                    console.info(`Yield: ${i}`);
+                    result.push(i);
+                }
+            }
+            return result;
+        }
+
+        const numbersArray = ganjilArray(100);
+        for (const number of numbersArray) {
+            console.info(number);
+        }
+    </script>
+</body>
+</html>

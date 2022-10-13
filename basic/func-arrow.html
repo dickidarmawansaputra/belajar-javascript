@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function</title>
+</head>
+<body>
+    <script>
+        // alternative func yg lebih sederhana namu terdapat limitasi
+        /*
+        LIMITASI ARROW FUNCTION
+        - tidak memiliki fitur arguments object (seperti di rest parameter)
+        - tidak bisa gunakan func generator
+        - tidak bisa akses this
+        - tidak bisa akses super
+        */
+
+        const sayHello = (name) => {
+            const say = `Hi, ${name}`;
+            console.log(say);
+        }
+
+        sayHello("Dicki Darmawan Saputra");
+
+        // tanpa block
+        const arrowTanpaBlock = (name) => console.info(`Hi, ${name}`);
+
+        arrowTanpaBlock("Dicki");
+
+        // arrow func return value
+        // jika pake block tetap pake return
+        const sum = (first, second) => first + second;
+        console.info(sum(2,5));
+
+        // tanpa kurung parameter
+        // hanya bisa 1 parameter
+        const sayName = name => console.log(`My name is ${name}`);
+        sayName("Dicki DS");
+
+        // sebagai parameter (mirip anonymous func)
+        // anonymous func
+        function giveName(callback) {
+            callback("Dicki P");
+        }
+        // anonymous func
+        giveName(function (name) {
+            console.log(`Hi, ${name}`);
+        })
+
+        // dengan arrow func
+        giveName(name => console.log(`Hi, ${name}`));
+        
+
+    </script>
+</body>
+</html>

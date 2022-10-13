@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strict Mode</title>
+</head>
+<body>
+    <script>
+        // default saat menjalankan kode js = sloppy mode (mode tidak strict)
+        /*
+        Strict Mode
+        - beberapa js error yg silent error menjadi throw error (terlihat) (jadi lebih aman)
+        - perbaiki beberapa kesalahan engine js utk dioptimasi
+        - molak beberapa kode perintah yang kedepannya digunakan di ECMAScript (yg sudah tidak direkomendasikan lg)
+        - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
+        */
+
+        function useStrictMode() {
+            'use strict'
+            const person = {
+                name: "Dicki"
+            }
+
+            // maka akan error karna with tidak direkomendasikan
+            with (person) {
+                console.log(name);
+            }
+        }
+
+        useStrictMode();
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling</title>
+</head>
+<body>
+    <script>
+        // berbeda dengan throw error, jika terjadi error akan berhenti total
+        // tapi dengan try catch bisa menangkap error, dan kode dibawah try catch bisa lanjut berjalan
+        class MathUtil {
+            static sum(...numbers) {
+                if (numbers.length === 0) {
+                    throw new Error("Parameter harus kebih dari 0");
+                }
+                let total = 0;
+                for (const number of numbers) {
+                    total += number;
+                }
+                return total;
+            }
+        }
+
+        try {
+            console.log(MathUtil.sum());
+            console.log("code block Try berhenti");
+        } catch (error) {
+            console.log(`terjadi error: ${error.message}`)
+        } finally { // dengan finally, mau error atau enggak akan dieksekusi
+            console.log("Program selesai");
+        }
+
+        console.log("program selanjutnya berjalan");
+
+        // TRY FINNALY
+        // untuk case tertentu saja
+        class Counter {
+            #counter = 0;
+
+            next() {
+                try {
+                    return this.#counter;
+                } finally {
+                    this.#counter++;
+                }
+            }
+
+        }
+        const counter = new Counter();
+        console.log(counter.next());
+        console.log(counter.next());
+        console.log(counter.next());
+    </script>
+</body>
+</html>

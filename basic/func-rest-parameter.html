@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest Parameter Function</title>
+</head>
+<body>
+    <script>
+        // rest parameter kirim data sebanyak2nya dan otomatis di konversi ke Array
+        // rest parameter hanya boleh satu di setiap func
+        // posisinya hanya boleh di paling akhir jika lebih dari 1 parameter
+
+        function sum(name, ...data) {
+            let total = 0;
+            for (const item of data) {
+                total += item;
+            }
+            document.writeln(`Total ${name} = ${total}`);
+        }
+
+        sum("Car", 1,2,3,4,5); // output 15
+
+        // Spread Syntax merubah data array jadi rest parameter
+        const data = [1,2,3,4,5];
+        sum("Data", ...data); // dengan Spread Syntax
+
+        // Argument parameter di js lama, disarankan sekarang pake rest parameter
+        // kekurangan tidak bisa nentukan parameter ke 1,2 itu apa
+
+
+        // tidak direkomendasikan gunakan Argument Parameter
+        function oldSum() {
+            let total = 0;
+            for (const item of arguments) {
+                total += item;
+            }
+            document.writeln(`Total ${name} = ${total}`);
+        }
+
+        oldSum(1,2,3,4,5);
+    </script>
+</body>
+</html>
