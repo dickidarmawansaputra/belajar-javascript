@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable Module</title>
+    <script src="scripts/variable.js" type="module"></script>
+</head>
+<body>
+    <script type="module">
+        import { name } from "./scripts/variable.js";
+        // variable hanya bisa digunakan di module itu sendiri
+        // jika ingin gunakan di module lain
+        // gunakan export
+        console.info(`var di module: ${name}`);
+    </script>
+</body>
+</html>
