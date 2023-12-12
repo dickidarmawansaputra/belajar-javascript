@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export Default & Named</title>
+    <script src="scripts/export-default-named.js" type="module"></script>
+</head>
+<body>
+    <script type="module">
+        // bedakan antara default & named ketika import
+        // sebisa mungkin selalu gunakan export name dibanding export default
+        import authorName, {title, content} from './scripts/export-default-named.js';
+
+        console.info(authorName);
+        console.info(title);
+        console.info(content);
+    </script>
+</body>
+</html>

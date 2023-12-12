@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>With Module</title>
+    <!-- gunakan type="module" -->
+    <script src="scripts/library.js" type="module"></script>
+</head>
+<body>
+    <script type="module">
+        import { sayHello, sayGoodbye } from "./scripts/library.js";
+        sayHello("Dicki");
+        sayGoodbye("Dicki");
+    </script>
+</body>
+</html>
