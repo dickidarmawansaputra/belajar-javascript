@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnerText & InnerHTML</title>
+</head>
+<body>
+    <p id="content">
+        <script>
+            console.info("Hi");
+        </script>
+        <b>Dicki</b> Darmawan <i>Saputra</i>
+    </p>
+    <script>
+        const content = document.getElementById("content");
+        console.log(content.textContent);
+        console.log(content.innerText);
+        console.log(content.innerHTML);
+        content.innerHTML = "<h1>This is innerHTML</h1>";
+    </script>
+</body>
+</html>

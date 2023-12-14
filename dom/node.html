@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node</title>
+</head>
+<body>
+    <ul id="menu">
+        <li id="first">first</li>
+        <li id="second">second</li>
+        <li id="third">third</li>
+    </ul>
+    Dicki Darmawan Saputra
+    <!-- Hello World -->
+    <script>
+        const menu = document.getElementById("menu");
+        console.info(menu);
+        
+        const second = document.getElementById("second");
+        console.log(second);
+        
+        // node property
+        console.info(menu.children);
+        console.info(menu.childNodes);
+        console.info(second.textContent);
+        console.info(second.previousSibling);
+        console.info(second.nextSibling);
+        
+        // node method
+        menu.removeChild(document.getElementById("first"));
+
+        // NodeList
+        const list = document.querySelector("li");
+        console.info(list);
+        
+        // NodeList Live
+        const listLive = menu.childNodes;
+        menu.append(document.createElement("li"));
+        
+        // NodeList Static
+        console.info(list);
+
+        // Node Type
+        const nodes = document.body.childNodes;
+        nodes.forEach(node => {
+            console.info(`${node} : ${node.nodeType}`);
+        });
+    </script>
+</body>
+</html>
