@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute</title>
+</head>
+<body>
+    <img id="image" src="https://placehold.co/600x400/EEE/31343C" alt="Placeholder Image">
+    <script>
+        const image = document.getElementById("image");
+        const src = image.getAttributeNode("src");
+        const source = image.getAttribute("src");
+
+        console.info(src.name);
+        console.info(src.value);
+
+        // membuat attr
+        const srcImg = document.createAttribute("src");
+        srcImg.value = "https://placehold.co/600x400/EEE/31343C";
+        image.setAttributeNode(srcImg);
+        
+        // NamedNodeMap
+        const attributes = image.attributes;
+        for (const attribute of attributes) {
+            console.info(`${attribute.name} : ${attribute.value}`);
+        }
+    </script>
+</body>
+</html>

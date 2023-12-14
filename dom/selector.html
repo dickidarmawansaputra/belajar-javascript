@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector</title>
+</head>
+<body>
+    <ul>
+        <li class="menuItem">1</li>
+        <li id="#menuItem">2</li>
+        <li>3</li>
+    </ul>
+    <div class="dicki"></div>
+    <div class="darmawan"></div>
+    <div class="saputra"></div>
+    <script>
+        // universal selector
+        const universal = document.querySelectorAll("*");
+        console.info(universal);
+        
+        // type selector
+        const elementType = document.querySelectorAll("li");
+        console.info(elementType);
+        
+        // class selector
+        const elementClass = document.querySelectorAll(".menuItem");
+        console.info(elementClass);
+        
+        // id selector
+        const elementId = document.querySelectorAll("#menuItem");
+        console.info(elementId);
+        
+        // attribute selector
+        const elementAttr = document.querySelectorAll("[class]");
+        console.info(elementAttr);
+        
+        // operator attribute selector
+        const elementOperatorAttr = document.querySelectorAll("div[class^='dicki']");
+        console.info(elementOperatorAttr);
+    </script>
+</body>
+</html>
