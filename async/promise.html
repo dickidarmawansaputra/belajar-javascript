@@ -16,6 +16,7 @@
     <ul id="products"></ul>
 
     <script>
+        // promise sebagai proxy untuk proses async
         // background implementasi Promise
         // ada masalah di callback yg disebut CALLBACK HELL
         // agak susah dibaca dan ribet jika melakukan banyak callback
@@ -118,6 +119,7 @@
                     alert(error.message);
                 })
                 .finally(function () { 
+                    // block finnaly tetap akan dieksekusi ketika success atau error
                     console.log("Proses promise selesai");
                 });
         }

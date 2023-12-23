@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method Async</title>
+</head>
+<body>
+    <script>
+        // BEBERAPA METHOD ASYNC
+
+        const addElement = () => {
+            const header = document.createElement("h1");
+            header.textContent = "Belajar JavaScript Async";
+
+            document.body.appendChild(header);
+        }
+
+        // SET TIMEOUT
+        // bisa gini
+        setTimeout(addElement, 5000);
+
+        // atau dengan anonymous func
+        setTimeout(() => {
+            addElement();
+        }, 5000);
+
+        // SET INTERVAL
+        setInterval(addElement, 1000);
+
+        setInterval(() => {
+            addElement();
+        }, 1000);
+    </script>
+</body>
+</html>

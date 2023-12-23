@@ -7,116 +7,127 @@
     <title>AJAX</title>
 </head>
 <body>
-    <input type="text" id="keyword">
-    <button onclick="buttonClick()">Search Products</button>
-    <ul id="products"></ul>
-    <div id="table-products"></div>
-
+    <h1 id="response"></h1>
+    <form>
+        <label for="username">Username:
+            <input type="text" id="username" name="username">
+        </label>
+        <label for="password">Password:
+            <input type="password" id="password" name="password">
+        </label>
+        <label for="profile">Profile:
+            <input type="file" id="profile" name="profile">
+        </label>
+        <br>
+        <input type="button" id="login" value="login">
+        <input type="button" id="loginformdata" value="login form data">
+        <input type="button" id="upload" value="upload">
+    </form>
+    <form>
+        <label for="search">Search:
+            <input type="text" id="search" name="search">
+        </label>
+        <br>
+        <input type="button" id="searching" value="search">
+    </form>
     <script>
-        function getProductsUrl(keyword) {
-            return `https://www.blibli.com/backend/search/products?searchTerm=${keyword}`;
+        function displayResponse(json) {
+            const response = document.getElementById("response");
+            response.textContent = json.data;
         }
 
-        function getProducts(keyword, callbackSuccess, callbackError) {
-            // Code AJAX Here!
+        const ajax = new XMLHttpRequest();
+        // menerima response dari ajax
+        ajax.addEventListener("load", function () {
+            // ajax status
+            if (ajax.status === 200) {
+                const json = JSON.parse(ajax.responseText);
+                displayResponse(json);
+            } else {
+                displayResponse({
+                    data: `Terjadi kesalahan dengan status ${ajax.status}`
+                });
+            }
+        });
+
+        ajax.open("GET", "api/hello.json")
+        ajax.send();
+
+        // state ajax
+        // bisa juga dengan addEventListener seperti diatas
+        ajax.onreadystatechange = () => {
+            console.log(`Ready State Change ${ajax.readyState}`);
+        }
+
+        // HOOKBIN AS AJAX SERVER
+        // https://enavfroomcaub.x.pipedream.net/
+        // https://public.requestbin.com/r/enavfroomcaub/
+
+        // mengirim data dengan ajax
+        function login() {
             const ajax = new XMLHttpRequest();
-            const url = getProductsUrl(keyword);
-
-            // dengan AJAX CALLBACK
-            ajax.onload = function() {
-                // AJAX CALLBACK ERROR
-                if (ajax.status === 200) {
-                    const data = JSON.parse(ajax.responseText);
-                    callbackSuccess(data);
-
-                    // display di list
-                    // clearProducts();
-                    // displayProducts(data);
-
-                    // display di table
-                    // gunakan DYNAMIC CALLBACK BIAR BAGUS
-                    // clearProducts();
-                    // displayTableProducts(data);
-                } else {
-                    callbackError();
-
-                    // getProductsError();
-                }
-            };
-
-            ajax.open("GET", url);
-            ajax.send();
-
-            // tidak bisa dilakukan secara sync
-            // const response = JSON.parse(ajax.responseText);
-            // console.log(response);
-
-
+            ajax.open("POST", "https://enavfroomcaub.x.pipedream.net");
+            ajax.onload = function () {
+                const response = document.getElementById("response");
+                response.innerText = ajax.responseText;
+            }
+            ajax.setRequestHeader("Content-Type", "application/json");
+            const json = {
+                username: document.getElementById("username").value,
+                password: document.getElementById("password").value
+            }
+            ajax.send(JSON.stringify(json));
         }
 
-        function getProductsError() {
-            const productLi = document.createElement("li");
-            productLi.textContent = "Product not found";
+        document.getElementById("login").onclick = login;
+        
+        // URL search param
+        // mengirim data dengan query parameter
+        function search() {
+            const ajax = new XMLHttpRequest();
+            const param = new URLSearchParams();
+            param.append("search", document.getElementById("search").value);
 
-            const productUl = document.getElementById("products");
-            productUl.appendChild(productLi);
+            ajax.open("GET", `https://enavfroomcaub.x.pipedream.net?${param.toString()}`);
+            ajax.onload = function () {
+                console.log(ajax.responseText);
+            }
+            ajax.setRequestHeader("Content-Type", "application/json");
+            ajax.send(param);
         }
+        document.getElementById("searching").onclick = search;
+        
+        // mengirim form data dengan ajax
+        function formData() {
+            const ajax = new XMLHttpRequest();
+            ajax.open("POST", "https://enavfroomcaub.x.pipedream.net");
+            ajax.onload = () => {
+                console.log(ajax.responseText);
+            }
+            ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-        function clearProducts() {
-            const productUl = document.getElementById("products");
-            productUl.textContent = "";
+            const form = new URLSearchParams();
+            form.append("username", document.getElementById("username").value);
+            form.append("password", document.getElementById("password").value);
+            ajax.send(form);
         }
+        document.getElementById("loginformdata").onclick = formData;
+        
+        // upload file dengan ajax
+        function upload() {
+            const ajax = new XMLHttpRequest();
+            ajax.open("POST", "https://enavfroomcaub.x.pipedream.net");
+            ajax.onload = () => {
+                console.log(ajax.responseText);
+            }
 
-        function displayProducts(data) {
-            data.data.products.forEach(product => displayProduct(product));
+            const form = new FormData();
+            form.append("username", document.getElementById("username").value);
+            form.append("password", document.getElementById("password").value);
+            form.append("profile", document.getElementById("profile").files.item(0));
+            ajax.send(form);
         }
-
-        function displayProduct(product) {
-            const productLi = document.createElement("li");
-            productLi.textContent = product.name;
-
-            const productUl = document.getElementById("products");
-            productUl.appendChild(productLi);
-        }
-
-        function clearTableProducts() {
-            const productUl = document.getElementById("table-products");
-            productUl.textContent = "";
-        }
-
-        function displayTableProducts(data) {
-            const table = document.createElement("table");
-            table.setAttribute("border", 1);
-
-            let index = 0;
-            data.data.products.forEach(product => {
-                table.insertRow(index).insertCell(0).innerText = product.name;
-                index++;
-            });
-
-            const tableProduct = document.getElementById("table-products");
-            tableProduct.appendChild(table);
-        }
-
-        function buttonClick() {
-            // gunakan func as argument (callback func dimasukan sebagai argument)
-            // jadi ketika mau merubah2 tidak perlu ubah di method getProducts()
-            // DYNAMIC CALLBACK
-            getProducts(document.getElementById("keyword").value, function (data) {
-                clearProducts();
-                displayProducts(data);
-            }, function () {
-                getProductsError();
-            });
-            
-            getProducts(document.getElementById("keyword").value, function (data) {
-                clearTableProducts();
-                displayTableProducts(data);
-            }, function () {
-                getProductsError();
-            });
-            console.log("Check Async: success click button");
-        }
-    </script>
+        document.getElementById("upload").onclick = upload;
+        </script>
 </body>
 </html>
