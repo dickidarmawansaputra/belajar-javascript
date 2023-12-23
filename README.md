@@ -9,3 +9,4 @@
 - [TUTORIAL JAVASCRIPT DOM - BAHASA INDONESIA](https://www.youtube.com/watch?v=vaPutSH0sYg)
 - [STUDI KASUS JAVASCRIPT TODOLIST BAHASA INDONESIA](https://github.com/ProgrammerZamanNow/belajar-javascript-todolist)
 - [TUTORIAL JAVASCRIPT ASYNC - BAHASA INDONESIA](https://www.youtube.com/watch?v=qwL6ISjbaaE)
+- [Belajar JavaScript Async](https://www.youtube.com/watch?v=LLT6EAtX-x8&list=PL-CtdCApEFH-I4CD6km3BcXqrhWAkY4et&pp=iAQB)
